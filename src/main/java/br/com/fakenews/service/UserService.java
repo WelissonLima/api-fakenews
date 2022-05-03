@@ -19,7 +19,7 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	public List<UserOutputDto> getAll() {
-		return userRepository.findAll().stream()
+		return  userRepository.findAll().stream()
 				.map(UserEntity::toUserOutputDto)
 				.collect(Collectors.toList());
 	}
@@ -27,7 +27,11 @@ public class UserService {
 	public UserOutputDto findById(final Long idUser) {
 		Optional<UserEntity> optionalUser = userRepository.findById(idUser);
 		
-		return optionalUser.get().toUserOutputDto(); 
+		if(optionalUser.isPresent()) {
+			return optionalUser.get().toUserOutputDto();
+		}
+		
+		return null;
 	}
 
 	public UserOutputDto create(final UserInputDto userInputDto) {
