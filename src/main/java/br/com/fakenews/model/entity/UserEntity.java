@@ -2,6 +2,7 @@ package br.com.fakenews.model.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +12,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import br.com.fakenews.dto.input.UserInputDto;
-import br.com.fakenews.dto.output.UserOutputDto;
+import br.com.fakenews.dto.UserInputDto;
+import br.com.fakenews.dto.UserLoginInputDto;
+import br.com.fakenews.dto.UserOutputDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -37,6 +39,7 @@ public class UserEntity {
 	
 	@Email
 	@NotBlank
+	@Column(unique = true)
 	private String email;
 	
 	@NotBlank
@@ -44,6 +47,13 @@ public class UserEntity {
 	
 	@NotNull
 	private Date birthdate;
+	
+	public UserLoginInputDto toUserLoginInputDto() {
+		return UserLoginInputDto.builder()
+				.email(this.email)
+				.password(this.password)
+				.build();
+	}
 	
 	public UserOutputDto toUserOutputDto() {
 		return UserOutputDto.builder()

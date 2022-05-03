@@ -1,4 +1,4 @@
-package br.com.fakenews.dto.input;
+package br.com.fakenews.dto;
 
 import java.util.Date;
 
