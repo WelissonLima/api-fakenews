@@ -22,8 +22,18 @@ public class DetailsLoginService  implements UserDetailsService{
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		
+		if(email.isBlank()){
+			throw new UsernameNotFoundException("Email must be provided.");
+		}
+		
+		
 		Optional<UserEntity> optionalUser = userRepository.findByEmail(email);
 		
-		return new DetailsLoginData(optionalUser);
+		if(optionalUser.isEmpty()) {
+			throw new UsernameNotFoundException(String.format("Email %s not found .", email));	
+		}
+		
+		return new DetailsLoginData(optionalUser.get());
 	}
 }

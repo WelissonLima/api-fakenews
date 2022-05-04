@@ -2,19 +2,18 @@ package br.com.fakenews.security.data;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import br.com.fakenews.model.entity.UserEntity;
 
-public class DetailsLoginData implements UserDetails{
+public class DetailsLoginData implements UserDetails {
 	
 	private static final long serialVersionUID = 3493632418431575737L;
-	private final Optional<UserEntity> login;
+	private final UserEntity login;
 	
-	public DetailsLoginData(Optional<UserEntity> login) {
+	public DetailsLoginData(UserEntity login) {
 		this.login = login;
 	}
 
@@ -25,12 +24,12 @@ public class DetailsLoginData implements UserDetails{
 
 	@Override
 	public String getPassword() {
-		return login.orElse(new UserEntity()).getPassword();
+		return login.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		return login.orElse(new UserEntity()).getEmail();
+		return login.getEmail();
 	}
 
 	@Override

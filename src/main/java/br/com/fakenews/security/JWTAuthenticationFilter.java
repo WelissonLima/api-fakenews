@@ -20,6 +20,8 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.fakenews.dto.UserLoginInputDto;
+import br.com.fakenews.dto.UserLoginOutputDto;
+import br.com.fakenews.exception.UserAuthenticationFailure;
 import br.com.fakenews.security.data.DetailsLoginData;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -47,7 +49,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 					new ArrayList<>()
 			));
 		} catch (Exception e) {
-			throw new RuntimeException("Falha ao autenticar usuario: ", e);
+			throw new UserAuthenticationFailure("Falha ao autenticar usuario.", e);
 		}
 	}
 	
@@ -64,7 +66,22 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				.withExpiresAt(new Date(System.currentTimeMillis() + TOKEN_EXPIRATION))
 				.sign(Algorithm.HMAC512(TOKEN_PASSWORD));
 		
-		response.getWriter().write(token);
+		UserLoginOutputDto loginOutputDto = UserLoginOutputDto.builder()
+				.email(loginData.getUsername())
+				.token(token)
+				.build();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(loginOutputDto);
+		
+		response.getWriter().write(json);
 		response.getWriter().flush();
+	}
+	
+	@Override
+	protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response,
+	        AuthenticationException failed) throws IOException, ServletException {
+		
+		response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Authentication Failed");
 	}
 }
