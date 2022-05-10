@@ -34,9 +34,9 @@ public class NewsService {
 		return optionalNews.get();
 	}
 
-	public NewsEntity saveNews(final NewsInputDto newsInputDto) {	
-//		return newsRepository.saveAll(newsInputDto);
-		return null;
+	public NewsEntity saveNews(final NewsInputDto newsInputDto) {
+		NewsEntity newsEntity = newsInputDto.toNewsEntity();
+		return newsRepository.save(newsEntity);
 	}
 
 	public void deleteNews(final Long idNews) {

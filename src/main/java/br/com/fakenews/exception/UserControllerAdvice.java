@@ -26,6 +26,32 @@ public class UserControllerAdvice extends ResponseEntityExceptionHandler{
 
 		return new ResponseEntity<>(new ErrorResponse(status, e.getMessage()), status);
 	}
+
+	@ExceptionHandler(UserNotFoundException.class)
+	public ResponseEntity<ErrorResponse> handleUserNotFound(UserNotFoundException notFoundException) {
+
+		HttpStatus status = HttpStatus.NOT_FOUND;
+
+		StringWriter stringWriter = new StringWriter();
+		PrintWriter printWriter = new PrintWriter(stringWriter);
+
+		notFoundException.printStackTrace(printWriter);
+
+		return new ResponseEntity<>(new ErrorResponse(status, notFoundException.getMessage()), status);
+	}
+	
+	@ExceptionHandler(NewsNotFoundException.class)
+	public ResponseEntity<ErrorResponse> handleNewsNotFound(NewsNotFoundException notFoundException) {
+
+		HttpStatus status = HttpStatus.NOT_FOUND;
+
+		StringWriter stringWriter = new StringWriter();
+		PrintWriter printWriter = new PrintWriter(stringWriter);
+
+		notFoundException.printStackTrace(printWriter);
+
+		return new ResponseEntity<>(new ErrorResponse(status, notFoundException.getMessage()), status);
+	}
 	
 //	@ExceptionHandler(UserAuthenticationFailure.class)
 //	public ResponseEntity<ErrorResponse> handleUserAuthenticationFailure(UserAuthenticationFailure e) {

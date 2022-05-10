@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import br.com.fakenews.dto.NewsInputDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,7 +35,6 @@ public class NewsEntity {
 	@NotBlank
 	private String body;
 
-	@NotBlank
 	private Boolean veracity;
 	
 	private String author;
@@ -44,4 +44,15 @@ public class NewsEntity {
 	private String category;
 	
 	private Date publicationDate;
+	
+	public NewsInputDto toNewsInputDto() {
+		return NewsInputDto.builder()
+				.title(this.title)
+				.body(this.body)
+				.author(this.author)
+				.URL(this.URL)
+				.category(this.category)
+				.publicationDate(this.publicationDate)
+				.build();
+	}
 }

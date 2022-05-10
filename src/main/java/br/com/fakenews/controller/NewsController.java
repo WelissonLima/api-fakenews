@@ -30,33 +30,33 @@ public class NewsController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<NewsEntity>> getAllUsers(){
+	public ResponseEntity<List<NewsEntity>> getAllNews(){
 		return new ResponseEntity<>(newsService.findAllNews(), HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/{idNews}")
-	public ResponseEntity<NewsEntity> findById(@PathVariable Long idNews){
+	public ResponseEntity<NewsEntity> findNewsById(@PathVariable Long idNews){
 		NewsEntity newsEntity = newsService.findNewsById(idNews);
 		
 		return new ResponseEntity<>(newsEntity, HttpStatus.OK);
 	}
 	
 	@PostMapping
-	public ResponseEntity<NewsEntity> saveUser(@Valid @RequestBody NewsInputDto newsInputDto) {
+	public ResponseEntity<NewsEntity> saveNews(@Valid @RequestBody NewsInputDto newsInputDto) {
 		NewsEntity newsEntity = newsService.saveNews(newsInputDto);
 		
 		return new ResponseEntity<>(newsEntity, HttpStatus.OK);
 	}
 	
-	@PutMapping(value = "/{idUser}")
-	public ResponseEntity<NewsEntity> updateUser(@PathVariable Long idNews, @Valid @RequestBody NewsInputDto newsInputDto) {
+	@PutMapping(value = "/{idNews}")
+	public ResponseEntity<NewsEntity> updateNews(@PathVariable Long idNews, @Valid @RequestBody NewsInputDto newsInputDto) {
 		NewsEntity newsEntity = newsService.updateNews(idNews, newsInputDto);
 		
 		return new ResponseEntity<>(newsEntity, HttpStatus.OK);
 	}
 	
 	@DeleteMapping(value = "/{idNews}")
-	public ResponseEntity<Void> deleteUser(@PathVariable Long idNews) {
+	public ResponseEntity<Void> deleteNews(@PathVariable Long idNews) {
 		newsService.deleteNews(idNews);
 		
 		return ResponseEntity.noContent().build();

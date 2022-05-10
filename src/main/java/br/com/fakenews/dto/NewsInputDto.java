@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 
+import br.com.fakenews.model.entity.NewsEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,9 +23,6 @@ public class NewsInputDto {
 	
 	@NotBlank
 	private String body;
-
-	@NotBlank
-	private Boolean veracity;
 	
 	private String author;
 	
@@ -33,4 +31,15 @@ public class NewsInputDto {
 	private String category;
 	
 	private Date publicationDate;
+	
+	public NewsEntity toNewsEntity() {
+		return NewsEntity.builder()
+				.title(this.title)
+				.body(this.body)
+				.author(this.author)
+				.URL(this.URL)
+				.category(this.category)
+				.publicationDate(this.publicationDate)
+				.build();
+	}
 }
