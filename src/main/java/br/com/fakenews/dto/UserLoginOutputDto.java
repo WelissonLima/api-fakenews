@@ -1,7 +1,5 @@
 package br.com.fakenews.dto;
 
-import java.util.Date;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -26,7 +24,7 @@ public class UserLoginOutputDto {
 	private String fullname;
 	
 	@NotNull
-	private Date birthdate;
+	private String birthdate;
 	
 	@Email
 	@NotBlank
