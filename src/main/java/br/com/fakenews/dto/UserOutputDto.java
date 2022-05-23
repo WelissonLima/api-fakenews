@@ -29,4 +29,6 @@ public class UserOutputDto {
 	
 	@NotNull
 	private Date birthdate;
+	
+	private String photo;
 }

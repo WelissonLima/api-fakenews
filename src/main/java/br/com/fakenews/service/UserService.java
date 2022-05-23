@@ -30,14 +30,14 @@ public class UserService {
 				.collect(Collectors.toList());
 	}
 	
-	public Optional<UserEntity> findUserByEmail(final String email) {
+	public UserOutputDto findUserByEmail(final String email) {
 		Optional<UserEntity> optionalUser = userRepository.findByEmail(email);
 		
 		if(optionalUser.isEmpty()) {
 			throw new UserNotFoundException("Usuário [" + email + "] não encontrado."); 
 		}
 		
-		return optionalUser;
+		return optionalUser.get().toUserOutputDto();
 	}
 
 	public UserOutputDto findUserById(final Long idUser) {

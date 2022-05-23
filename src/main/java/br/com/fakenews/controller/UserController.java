@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fakenews.dto.UserInputDto;
@@ -37,6 +38,12 @@ public class UserController {
 	@GetMapping(value = "/{idUser}")
 	public ResponseEntity<UserOutputDto> findById(@PathVariable Long idUser){
 		UserOutputDto userOutputDto = userService.findUserById(idUser);		
+		return new ResponseEntity<>(userOutputDto, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/email")
+	public ResponseEntity<UserOutputDto> findUserByEmail(@RequestParam String email){
+		UserOutputDto userOutputDto = userService.findUserByEmail(email);		
 		return new ResponseEntity<>(userOutputDto, HttpStatus.OK);
 	}
 	

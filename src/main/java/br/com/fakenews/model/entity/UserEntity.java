@@ -48,6 +48,8 @@ public class UserEntity {
 	@NotNull
 	private Date birthdate;
 	
+	private String photo;
+	
 	public UserLoginInputDto toUserLoginInputDto() {
 		return UserLoginInputDto.builder()
 				.email(this.email)
@@ -61,6 +63,7 @@ public class UserEntity {
 				.fullname(this.fullname)
 				.email(this.email)
 				.birthdate(this.birthdate)
+				.photo(this.photo)
 				.build();
 	}
 	
@@ -70,6 +73,7 @@ public class UserEntity {
 				.email(this.email)
 				.password(this.password)
 				.birthdate(this.birthdate)
+				.photo(this.photo)
 				.build();
 	}
 }

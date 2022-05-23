@@ -31,12 +31,15 @@ public class UserInputDto {
 	@NotNull
 	private Date birthdate;
 	
+	private String photo;
+	
 	public static UserEntity toUserEntity(final UserInputDto userInputDto) {
 		return UserEntity.builder()
 				.fullname(userInputDto.fullname)
 				.email(userInputDto.email)
 				.password(userInputDto.password)
 				.birthdate(userInputDto.birthdate)
+				.photo(userInputDto.photo == null ? "" : userInputDto.photo)
 				.build();
 	}
 }
