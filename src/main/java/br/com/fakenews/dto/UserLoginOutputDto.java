@@ -1,7 +1,10 @@
 package br.com.fakenews.dto;
 
+import java.util.Date;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,12 +19,23 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserLoginOutputDto {
 
+	@NotNull
+	private Long id;
+
+	@NotBlank
+	private String fullname;
+	
+	@NotNull
+	private Date birthdate;
+	
 	@Email
 	@NotBlank
 	private String email;
 	
 	private String password;
 	
+	private String photo;
+
 	@NotBlank
 	private String token;
 }

@@ -31,6 +31,10 @@ public class DetailsLoginData implements UserDetails {
 	public String getUsername() {
 		return login.getEmail();
 	}
+	
+	public UserEntity getUser() {
+		return login;
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {

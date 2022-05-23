@@ -67,7 +67,11 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				.sign(Algorithm.HMAC512(TOKEN_PASSWORD));
 		
 		UserLoginOutputDto loginOutputDto = UserLoginOutputDto.builder()
+				.id(loginData.getUser().getId())
+				.fullname(loginData.getUser().getFullname())
+				.birthdate(loginData.getUser().getBirthdate())
 				.email(loginData.getUsername())
+				.photo(loginData.getUser().getPhoto())
 				.token(token)
 				.build();
 		
