@@ -33,6 +33,8 @@ public class UserLoginOutputDto {
 	private String password;
 	
 	private String photo;
+	
+	private String address;
 
 	@NotBlank
 	private String token;

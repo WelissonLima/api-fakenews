@@ -50,6 +50,8 @@ public class UserEntity {
 	
 	private String photo;
 	
+	private String address;
+	
 	public UserLoginInputDto toUserLoginInputDto() {
 		return UserLoginInputDto.builder()
 				.email(this.email)
@@ -64,14 +66,13 @@ public class UserEntity {
 				.email(this.email)
 				.birthdate(this.birthdate)
 				.photo(this.photo)
+				.address(this.address)
 				.build();
 	}
 	
 	public UserInputDto toUserInputDto(UserEntity userEntity) {
 		return UserInputDto.builder()
 				.fullname(this.fullname)
-				.email(this.email)
-				.password(this.password)
 				.birthdate(this.birthdate)
 				.photo(this.photo)
 				.build();

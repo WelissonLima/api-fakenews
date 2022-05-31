@@ -72,6 +72,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				.birthdate(loginData.getUser().getBirthdate().toString())
 				.email(loginData.getUsername())
 				.photo(loginData.getUser().getPhoto())
+				.address(loginData.getUser().getAddress())
 				.token(token)
 				.build();
 		

@@ -78,8 +78,8 @@ public class UserService {
 		UserEntity userEntity = optionalUser.get();
 		userEntity.setFullname(userInputDto.getFullname());
 		userEntity.setBirthdate(userInputDto.getBirthdate());
-		userEntity.setEmail(userInputDto.getEmail());
-		userEntity.setPassword(userInputDto.getPassword());
+		userEntity.setPhoto(userInputDto.getPhoto());
+		userEntity.setAddress(userInputDto.getAddress());
 		
 		return userRepository.save(userEntity).toUserOutputDto();
 	}

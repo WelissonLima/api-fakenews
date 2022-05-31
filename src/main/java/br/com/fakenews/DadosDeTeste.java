@@ -24,11 +24,11 @@ public class DadosDeTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		UserInputDto userInputDto1 = new UserInputDto("admin@admin.com", "123", "Admin", new Date(), "");
-		UserInputDto userInputDto2 = new UserInputDto("le@gmail.com", "123", "Leticia Alves", new Date(), "");
-		UserInputDto userInputDto3 = new UserInputDto("lu@gmail.com", "123", "Lucas Pinto", new Date(), "");
-		UserInputDto userInputDto4 = new UserInputDto("te@gmail.com", "123", "Tercilio Fonseca", new Date(), "");
-		UserInputDto userInputDto5 = new UserInputDto("we@gmail.com", "123", "Welisson Lima", new Date(), "");
+		UserInputDto userInputDto1 = new UserInputDto("admin@admin.com", "123", "Admin", new Date(), "", "");
+		UserInputDto userInputDto2 = new UserInputDto("le@gmail.com", "123", "Leticia Alves", new Date(), "", "");
+		UserInputDto userInputDto3 = new UserInputDto("lu@gmail.com", "123", "Lucas Pinto", new Date(), "", "");
+		UserInputDto userInputDto4 = new UserInputDto("te@gmail.com", "123", "Tercilio Fonseca", new Date(), "", "");
+		UserInputDto userInputDto5 = new UserInputDto("we@gmail.com", "123", "Welisson Lima", new Date(), "", "");
 		
 		NewsInputDto newsInputDto1 = new NewsInputDto("Title 1", "Title 1 Welisson Lima", "welisson lima", "www.google.com", "TESTE", new Date());
 		NewsInputDto newsInputDto2 = new NewsInputDto("Title 2", "Title 2 Welisson Lima", "welisson lima", "www.google.com", "TESTE", new Date());
