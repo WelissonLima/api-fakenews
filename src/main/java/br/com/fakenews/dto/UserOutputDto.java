@@ -31,4 +31,6 @@ public class UserOutputDto {
 	private Date birthdate;
 	
 	private String photo;
+	
+	private String address;
 }

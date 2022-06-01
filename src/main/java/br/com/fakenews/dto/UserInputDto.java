@@ -19,10 +19,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserInputDto {
 
-	@NotBlank
 	private String email;
 
-	@NotBlank
 	private String password;
 	
 	@NotBlank
@@ -33,6 +31,8 @@ public class UserInputDto {
 	
 	private String photo;
 	
+	private String address;
+	
 	public static UserEntity toUserEntity(final UserInputDto userInputDto) {
 		return UserEntity.builder()
 				.fullname(userInputDto.fullname)
@@ -40,6 +40,7 @@ public class UserInputDto {
 				.password(userInputDto.password)
 				.birthdate(userInputDto.birthdate)
 				.photo(userInputDto.photo == null ? "" : userInputDto.photo)
+				.address(userInputDto.address == null ? "" : userInputDto.address)
 				.build();
 	}
 }
