@@ -1,4 +1,4 @@
-package br.com.fakenews.model.entity;
+package br.com.fakenews.model.enumerator;
 
 public enum EstadosEnum {
     ACRE("Acre"),

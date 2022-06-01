@@ -38,16 +38,16 @@ public class DadosDeTeste implements ApplicationRunner {
 		NewsInputDto newsInputDto6 = new NewsInputDto("Title 6", "Title 6 Welisson Lima", "welisson lima", "www.google.com", "TESTE", new Date());
 		NewsInputDto newsInputDto7 = new NewsInputDto("Title 7", "Title 7 Welisson Lima", "welisson lima", "www.google.com", "TESTE", new Date());
 		NewsInputDto newsInputDto8 = new NewsInputDto("Title 8", "Title 8 Welisson Lima", "welisson lima", "www.google.com", "TESTE", new Date());
-		NewsInputDto newsInputDto9 = new NewsInputDto("Title 8", "No Distrito Federal o roubo aumenta 90%", "welisson lima", "www.google.com", "TESTE", new Date());
-		NewsInputDto newsInputDto10 = new NewsInputDto("Title 8", "No Distrito Federal foi propagado um novo virus chamado FakeNews", "welisson lima", "www.google.com", "TESTE", new Date());
-		NewsInputDto newsInputDto11 = new NewsInputDto("Title 8", "O governador de Santa Catarina foi preso", "welisson lima", "www.google.com", "TESTE", new Date());
-		NewsInputDto newsInputDto12 = new NewsInputDto("Title 8", "No RECREIO Rio de Janeiro foi encontrado uma mina de ouro", "welisson lima", "www.google.com", "TESTE", new Date());
-		NewsInputDto newsInputDto13 = new NewsInputDto("Title 8", "No São Paulo, Welisson Lima ganha o concurso de homem mais boco", "welisson lima", "www.google.com", "TESTE", new Date());
-		NewsInputDto newsInputDto14 = new NewsInputDto("Title 8", "Em Roraima o roubo aumenta 90%", "welisson lima", "www.google.com", "TESTE", new Date());
-		NewsInputDto newsInputDto15 = new NewsInputDto("Title 8", "No Sergipe foi propagado um novo virus chamado FakeNews", "welisson lima", "www.google.com", "TESTE", new Date());
-		NewsInputDto newsInputDto16 = new NewsInputDto("Title 8", "O governador de Bahia foi preso", "welisson lima", "www.google.com", "TESTE", new Date());
-		NewsInputDto newsInputDto17 = new NewsInputDto("Title 8", "No RECREIO Rio grande do sul foi encontrado uma mina de ouro", "welisson lima", "www.google.com", "TESTE", new Date());
-		NewsInputDto newsInputDto18 = new NewsInputDto("Title 8", "No Tocantins, Welisson Lima ganha o concurso de homem mais boco", "welisson lima", "www.google.com", "TESTE", new Date());
+		NewsInputDto newsInputDto9 = new NewsInputDto("Title 9", "No Distrito Federal o roubo aumenta 90%", "welisson lima", "www.google.com", "TESTE", new Date());
+		NewsInputDto newsInputDto10 = new NewsInputDto("Title 10", "No Distrito Federal foi propagado um novo virus chamado FakeNews", "welisson lima", "www.google.com", "TESTE", new Date());
+		NewsInputDto newsInputDto11 = new NewsInputDto("Title 11", "O governador de Santa Catarina foi preso", "welisson lima", "www.google.com", "TESTE", new Date());
+		NewsInputDto newsInputDto12 = new NewsInputDto("Title 12", "No RECREIO Rio de Janeiro foi encontrado uma mina de ouro", "welisson lima", "www.google.com", "TESTE", new Date());
+		NewsInputDto newsInputDto13 = new NewsInputDto("Title 13", "No São Paulo, Welisson Lima ganha o concurso de homem mais boco", "welisson lima", "www.google.com", "TESTE", new Date());
+		NewsInputDto newsInputDto14 = new NewsInputDto("Title 14", "Em Roraima o roubo aumenta 90%", "welisson lima", "www.google.com", "TESTE", new Date());
+		NewsInputDto newsInputDto15 = new NewsInputDto("Title 15", "No Sergipe foi propagado um novo virus chamado FakeNews", "welisson lima", "www.google.com", "TESTE", new Date());
+		NewsInputDto newsInputDto16 = new NewsInputDto("Title 16", "O governador de Bahia foi preso", "welisson lima", "www.google.com", "TESTE", new Date());
+		NewsInputDto newsInputDto17 = new NewsInputDto("Title 17", "No RECREIO Rio grande do sul foi encontrado uma mina de ouro", "welisson lima", "www.google.com", "TESTE", new Date());
+		NewsInputDto newsInputDto18 = new NewsInputDto("Title 18", "No Tocantins, Welisson Lima ganha o concurso de homem mais boco", "welisson lima", "www.google.com", "TESTE", new Date());
 
 
 		userService.saveUser(userInputDto1);
