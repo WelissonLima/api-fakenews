@@ -40,7 +40,6 @@ public class NewsInputDto {
 				.URL(this.URL)
 				.category(this.category)
 				.publicationDate(this.publicationDate)
-				.veracity(Boolean.FALSE)
 				.build();
 	}
 }

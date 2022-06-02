@@ -2,10 +2,12 @@ package br.com.fakenews.model.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -34,8 +36,6 @@ public class NewsEntity {
 	
 	@NotBlank
 	private String body;
-
-	private Boolean veracity;
 	
 	private String author;
 	
@@ -44,6 +44,9 @@ public class NewsEntity {
 	private String category;
 	
 	private Date publicationDate;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	private Prediction predictions;
 	
 	public NewsInputDto toNewsInputDto() {
 		return NewsInputDto.builder()

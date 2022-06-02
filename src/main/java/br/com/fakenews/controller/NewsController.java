@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fakenews.dto.NewsInputDto;
+import br.com.fakenews.dto.PredictNewsInputDto;
+import br.com.fakenews.dto.PredictNewsOutputDto;
+import br.com.fakenews.model.IBMToken;
 import br.com.fakenews.model.entity.NewsEntity;
 import br.com.fakenews.service.NewsService;
 
@@ -60,5 +63,28 @@ public class NewsController {
 		newsService.deleteNews(idNews);
 		
 		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping(value = "/ibm-token")
+	public ResponseEntity<IBMToken> getTokenIBM() {
+		IBMToken ibmToken = newsService.getTokenIBM();
+		
+		return new ResponseEntity<>(ibmToken, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/predict/{idNews}")
+	public ResponseEntity<NewsEntity> predictNews(@PathVariable Long idNews) {
+		NewsEntity newsEntity = newsService.findNewsById(idNews);
+		
+		newsEntity = newsService.predictNewsById(newsEntity);
+		
+		return new ResponseEntity<>(newsEntity, HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "/predict")
+	public ResponseEntity<PredictNewsOutputDto> predictNews(@RequestBody PredictNewsInputDto newsInputDto) {
+		PredictNewsOutputDto outputDto = newsService.predictNewsByBody(newsInputDto);
+		
+		return new ResponseEntity<>(outputDto, HttpStatus.OK);
 	}
 }
