@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import br.com.fakenews.dto.NewsInputDto;
 import lombok.AllArgsConstructor;
@@ -35,6 +36,7 @@ public class NewsEntity {
 	private String title;
 	
 	@NotBlank
+	@Size(max = 100000)
 	private String body;
 	
 	private String author;

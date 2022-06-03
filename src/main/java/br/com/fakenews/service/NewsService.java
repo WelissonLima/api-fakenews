@@ -52,7 +52,8 @@ public class NewsService {
 
 	public NewsEntity saveNews(final NewsInputDto newsInputDto) {
 		NewsEntity newsEntity = newsInputDto.toNewsEntity();
-		return newsRepository.save(newsEntity);
+		
+		return predictNewsById(newsEntity);
 	}
 
 	public void deleteNews(final Long idNews) {
